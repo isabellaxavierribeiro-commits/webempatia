@@ -3,8 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projeto Conecta - Empatia e Cooperação</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Conecta: Empatia e Cooperação</title>
+    <style>
+        /* Estilos Globais e Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Cabeçalho e Navegação */
+        header {
+            background: linear-gradient(135deg, #2b5876, #4e4376);
+            color: white;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #a8ff78;
+        }
+
+        /* Seção Principal (Hero) */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 5rem 1rem;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #a8ff78;
+            color: #2b5876;
+            padding: 0.8rem 1.8rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #78ffd6;
+            transform: scale(1.05);
+        }
+
+        /* Conteúdo Principal */
+        .container {
+            max-width: 1100px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .card h3 {
+            color: #2b5876;
+            margin-bottom: 1rem;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #2b5876;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+        }
+    </style>
 </head>
 <body>
 
@@ -23,15 +136,13 @@
         <a href="#acao" class="btn">Faça Parte</a>
     </section>
 
-    <main class="container">
-        <section id="sobre">
-            <h2 class="section-title">Por que Empatia e Cooperação Importam?</h2>
-            <p class="section-subtitle">
-                Em um mundo conectado, nossas ações individuais têm impacto coletivo. Cultivar a empatia melhora nossas relações interpessoais, enquanto a cooperação constrói comunidades mais fortes.
-            </p>
-        </section>
+    <div class="container" id="sobre">
+        <h2 style="text-align: center; color: #2b5876;">Por que Empatia e Cooperação Importam?</h2>
+        <p style="text-align: center; max-width: 800px; margin: 1rem auto; color: #555;">
+            Em um mundo conectado, nossas ações individuais têm impacto coletivo. Cultivar a empatia melhora nossas relações interpessoais, enquanto a cooperação constrói comunidades mais fortes e resilientes.
+        </p>
 
-        <section class="cards-grid" id="pilares">
+        <div class="cards-grid" id="pilares">
             <div class="card">
                 <h3>Escuta Ativa</h3>
                 <p>O primeiro passo da empatia é ouvir sem julgar. Dar espaço para que o outro se expresse fortalece os laços de confiança.</p>
@@ -44,27 +155,12 @@
                 <h3>Ação Solidária</h3>
                 <p>Transformar sentimentos em prática. Pequenos gestos de apoio cotidiano geram grandes ondas de mudança positiva.</p>
             </div>
-        </section>
-
-        <!-- SEÇÃO PARA ONDE O BOTÃO FAÇA PARTE VAI ROLAR -->
-        <section id="acao" style="margin-top: 5rem; padding-top: 2rem;">
-            <h2 class="section-title">Faça Parte da Mudança</h2>
-            <p class="section-subtitle">Junte-se à nossa rede de cooperação e ajude a impactar positivamente a comunidade.</p>
-            
-            <div class="card" style="max-width: 500px; margin: 0 auto;">
-                <form style="display: flex; flex-direction: column; gap: 1rem;">
-                    <input type="text" placeholder="Seu Nome" style="padding: 0.8rem; border-radius: 8px; border: 1px solid #ccc; width: 100%;" required>
-                    <input type="email" placeholder="Seu E-mail" style="padding: 0.8rem; border-radius: 8px; border: 1px solid #ccc; width: 100%;" required>
-                    <button type="submit" class="btn" style="border: none; cursor: pointer;">Quero Participar</button>
-                </form>
-            </div>
-        </section>
-    </main>
+        </div>
+    </div>
 
     <footer>
         <p>&copy; 2026 Projeto Conecta — Construindo pontes através do afeto e da união.</p>
     </footer>
 
-    <script src="script.js"></script>
 </body>
 </html>
