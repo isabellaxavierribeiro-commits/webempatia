@@ -4,7 +4,164 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projeto Conecta - Empatia e Cooperação</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos Globais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+
+        /* Cabeçalho */
+        header {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: #ffffff;
+            padding: 1.25rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        nav a {
+            color: #e2e8f0;
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        /* Seção Principal (Hero) */
+        .hero {
+            background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), 
+                        url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+            text-align: center;
+            padding: 6rem 1.5rem;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 650px;
+            margin: 0 auto 2rem;
+            color: #f1f5f9;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #0284c7;
+            color: #ffffff;
+            padding: 0.85rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 14px rgba(2, 132, 199, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0369a1;
+            transform: translateY(-2px);
+        }
+
+        /* Conteúdo Principal */
+        .container {
+            max-width: 1100px;
+            margin: 4rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #0f172a;
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            color: #64748b;
+            font-size: 1.1rem;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 2.5rem 2rem;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .card h3 {
+            color: #1e3a8a;
+            font-size: 1.35rem;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            color: #475569;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 2rem 1.5rem;
+            margin-top: 5rem;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            nav a {
+                margin: 0 0.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -46,7 +203,8 @@
             </div>
         </section>
 
-        <section id="acao" style="margin-top: 4rem; padding-top: 2rem;">
+        <!-- SEÇÃO DO FORMULÁRIO COM O ID CORRETO (#acao) -->
+        <section id="acao" style="margin-top: 5rem; padding-top: 2rem;">
             <h2 class="section-title">Faça Parte da Mudança</h2>
             <p class="section-subtitle">Junte-se à nossa rede de cooperação e ajude a impactar positivamente a comunidade.</p>
             
@@ -64,6 +222,5 @@
         <p>&copy; 2026 Projeto Conecta — Construindo pontes através do afeto e da união.</p>
     </footer>
 
-    <script src="script.js"></script>
 </body>
 </html>
