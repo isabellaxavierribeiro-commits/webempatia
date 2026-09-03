@@ -75,6 +75,8 @@
             text-decoration: none;
             font-weight: bold;
             transition: transform 0.2s, background-color 0.2s;
+            border: none;
+            cursor: pointer;
         }
 
         .btn:hover {
@@ -107,6 +109,64 @@
         .card h3 {
             color: #2b5876;
             margin-bottom: 1rem;
+        }
+
+        /* Seção Como Ajudar / Ação */
+        .acao-section {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-top: 3rem;
+        }
+
+        .acao-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .form-grupo {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-grupo label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #2b5876;
+            font-weight: 600;
+        }
+
+        .form-grupo input,
+        .form-grupo select,
+        .form-grupo textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .form-grupo input:focus,
+        .form-grupo select:focus,
+        .form-grupo textarea:focus {
+            outline: none;
+            border-color: #2b5876;
+        }
+
+        .info-ajuda {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .info-card {
+            background: #f4f7f6;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border-left: 4px solid #2b5876;
         }
 
         /* Rodapé */
@@ -166,6 +226,57 @@
                 <p>Transformar sentimentos em prática. Pequenos gestos de apoio cotidiano geram grandes ondas de mudança positiva.</p>
             </div>
         </div>
+
+        <!-- Seção Como Ajudar (#acao) -->
+        <section class="acao-section" id="acao">
+            <h2 style="text-align: center; color: #2b5876;">Como Ajudar</h2>
+            <p style="text-align: center; color: #666; margin-top: 0.5rem;">Junte-se à nossa rede de afeto e faça a diferença na comunidade.</p>
+
+            <div class="acao-container">
+                <!-- Formulário de Inscrição -->
+                <form onsubmit="alert('Obrigado pelo apoio! Entraremos em contato em breve.'); return false;">
+                    <div class="form-grupo">
+                        <label for="nome">Nome Completo</label>
+                        <input type="text" id="nome" required placeholder="Digite seu nome">
+                    </div>
+                    <div class="form-grupo">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" required placeholder="seuemail@exemplo.com">
+                    </div>
+                    <div class="form-grupo">
+                        <label for="tipo">Como deseja contribuir?</label>
+                        <select id="tipo" required>
+                            <option value="">Selecione uma opção...</option>
+                            <option value="voluntario">Quero ser voluntário</option>
+                            <option value="doacao">Quero doar suprimentos</option>
+                            <option value="divulgacao">Quero divulgar a causa</option>
+                        </select>
+                    </div>
+                    <div class="form-grupo">
+                        <label for="mensagem">Mensagem (opcional)</label>
+                        <textarea id="mensagem" rows="3" placeholder="Conte um pouco sobre como gostaria de colaborar..."></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">Enviar Inscrição</button>
+                </form>
+
+                <!-- Outras Formas de Apoio -->
+                <div class="info-ajuda">
+                    <div class="info-card">
+                        <h4 style="color: #2b5876;"> Seja Voluntário</h4>
+                        <p style="font-size: 0.95rem; color: #555;">Participe das nossas ações locais de escuta ativa e apoio comunitário nos finais de semana.</p>
+                    </div>
+                    <div class="info-card">
+                        <h4 style="color: #2b5876;"> Doações & Parcerias</h4>
+                        <p style="font-size: 0.95rem; color: #555;">Apoiamos instituições parceiras com doações de mantimentos, roupas e livros.</p>
+                    </div>
+                    <div class="info-card">
+                        <h4 style="color: #2b5876;"> Contato Direto</h4>
+                        <p style="font-size: 0.95rem; color: #555;">E-mail: contato@projetoconecta.org<br>Instagram: @projetoconecta</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </div>
 
     <footer>
