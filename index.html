@@ -5,38 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conecta: Empatia e Cooperação</title>
     <style>
+        /* Variáveis de Cores (Tema Claro) */
+        :root {
+            --bg-body: #f4f7f6;
+            --text-color: #333;
+            --header-bg: linear-gradient(135deg, #2b5876, #4e4376);
+            --card-bg: #ffffff;
+            --text-heading: #2b5876;
+            --text-sub: #555555;
+            --border-color: #cccccc;
+            --input-bg: #ffffff;
+            --info-card-bg: #f4f7f6;
+            --footer-bg: #2b5876;
+            --footer-text: #d1e8e2;
+            --btn-bg: #a8ff78;
+            --btn-text: #2b5876;
+        }
+
+        /* Variáveis de Cores (Tema Escuro) */
+        [data-theme="dark"] {
+            --bg-body: #121212;
+            --text-color: #e0e0e0;
+            --header-bg: linear-gradient(135deg, #1f1c2c, #928dab);
+            --card-bg: #1e1e1e;
+            --text-heading: #78ffd6;
+            --text-sub: #b0b0b0;
+            --border-color: #444444;
+            --input-bg: #2a2a2a;
+            --info-card-bg: #252525;
+            --footer-bg: #1a1a2e;
+            --footer-text: #a8ff78;
+            --btn-bg: #78ffd6;
+            --btn-text: #121212;
+        }
+
         /* Estilos Globais e Reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: #f4f7f6;
-            color: #333;
+            background-color: var(--bg-body);
+            color: var(--text-color);
             line-height: 1.6;
         }
 
         /* Cabeçalho e Navegação */
         header {
-            background: linear-gradient(135deg, #2b5876, #4e4376);
+            background: var(--header-bg);
             color: white;
             padding: 1.5rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
         header h1 {
             font-size: 1.8rem;
         }
 
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
         nav a {
             color: white;
             text-decoration: none;
-            margin-left: 1.5rem;
             font-weight: 500;
             transition: color 0.3s;
         }
@@ -45,9 +91,28 @@
             color: #a8ff78;
         }
 
+        /* Botão de Alternar Modo Escuro */
+        .theme-toggle {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
         /* Seção Principal (Hero) */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=80');
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=80');
             background-size: cover;
             background-position: center;
             color: white;
@@ -68,8 +133,8 @@
 
         .btn {
             display: inline-block;
-            background-color: #a8ff78;
-            color: #2b5876;
+            background-color: var(--btn-bg);
+            color: var(--btn-text);
             padding: 0.8rem 1.8rem;
             border-radius: 25px;
             text-decoration: none;
@@ -80,7 +145,7 @@
         }
 
         .btn:hover {
-            background-color: #78ffd6;
+            opacity: 0.9;
             transform: scale(1.05);
         }
 
@@ -99,24 +164,28 @@
         }
 
         .card {
-            background: white;
+            background: var(--card-bg);
             padding: 2rem;
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             text-align: center;
         }
 
         .card h3 {
-            color: #2b5876;
+            color: var(--text-heading);
             margin-bottom: 1rem;
+        }
+
+        .card p {
+            color: var(--text-sub);
         }
 
         /* Seção Como Ajudar / Ação */
         .acao-section {
-            background: white;
+            background: var(--card-bg);
             padding: 3rem 2rem;
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             margin-top: 3rem;
         }
 
@@ -134,7 +203,7 @@
         .form-grupo label {
             display: block;
             margin-bottom: 0.5rem;
-            color: #2b5876;
+            color: var(--text-heading);
             font-weight: 600;
         }
 
@@ -143,7 +212,9 @@
         .form-grupo textarea {
             width: 100%;
             padding: 0.8rem;
-            border: 1px solid #ccc;
+            border: 1px solid var(--border-color);
+            background-color: var(--input-bg);
+            color: var(--text-color);
             border-radius: 8px;
             font-size: 1rem;
         }
@@ -152,7 +223,7 @@
         .form-grupo select:focus,
         .form-grupo textarea:focus {
             outline: none;
-            border-color: #2b5876;
+            border-color: var(--text-heading);
         }
 
         .info-ajuda {
@@ -162,16 +233,20 @@
         }
 
         .info-card {
-            background: #f4f7f6;
+            background: var(--info-card-bg);
             padding: 1.5rem;
             border-radius: 8px;
             margin-bottom: 1rem;
-            border-left: 4px solid #2b5876;
+            border-left: 4px solid var(--text-heading);
+        }
+
+        .info-card p {
+            color: var(--text-sub);
         }
 
         /* Rodapé */
         footer {
-            background-color: #2b5876;
+            background-color: var(--footer-bg);
             color: white;
             text-align: center;
             padding: 2rem 1.5rem;
@@ -182,7 +257,7 @@
             margin-top: 0.8rem;
             font-style: italic;
             font-size: 0.95rem;
-            color: #d1e8e2;
+            color: var(--footer-text);
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
@@ -197,6 +272,9 @@
             <a href="#sobre">Sobre</a>
             <a href="#pilares">Pilares</a>
             <a href="#acao">Como Ajudar</a>
+            <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
+                <span id="themeIcon">🌙</span> <span id="themeText">Modo Escuro</span>
+            </button>
         </nav>
     </header>
 
@@ -207,8 +285,8 @@
     </section>
 
     <div class="container" id="sobre">
-        <h2 style="text-align: center; color: #2b5876;">Por que Empatia e Cooperação Importam?</h2>
-        <p style="text-align: center; max-width: 800px; margin: 1rem auto; color: #555;">
+        <h2 style="text-align: center; color: var(--text-heading);">Por que Empatia e Cooperação Importam?</h2>
+        <p style="text-align: center; max-width: 800px; margin: 1rem auto; color: var(--text-sub);">
             Em um mundo conectado, nossas ações individuais têm impacto coletivo. Cultivar a empatia melhora nossas relações interpessoais, enquanto a cooperação constrói comunidades mais fortes e resilientes.
         </p>
 
@@ -229,8 +307,8 @@
 
         <!-- Seção Como Ajudar (#acao) -->
         <section class="acao-section" id="acao">
-            <h2 style="text-align: center; color: #2b5876;">Como Ajudar</h2>
-            <p style="text-align: center; color: #666; margin-top: 0.5rem;">Junte-se à nossa rede de afeto e faça a diferença na comunidade.</p>
+            <h2 style="text-align: center; color: var(--text-heading);">Como Ajudar</h2>
+            <p style="text-align: center; color: var(--text-sub); margin-top: 0.5rem;">Junte-se à nossa rede de afeto e faça a diferença na comunidade.</p>
 
             <div class="acao-container">
                 <!-- Formulário de Inscrição -->
@@ -262,16 +340,16 @@
                 <!-- Outras Formas de Apoio -->
                 <div class="info-ajuda">
                     <div class="info-card">
-                        <h4 style="color: #2b5876;"> Seja Voluntário</h4>
-                        <p style="font-size: 0.95rem; color: #555;">Participe das nossas ações locais de escuta ativa e apoio comunitário nos finais de semana.</p>
+                        <h4 style="color: var(--text-heading);"> Seja Voluntário</h4>
+                        <p style="font-size: 0.95rem;">Participe das nossas ações locais de escuta ativa e apoio comunitário nos finais de semana.</p>
                     </div>
                     <div class="info-card">
-                        <h4 style="color: #2b5876;"> Doações & Parcerias</h4>
-                        <p style="font-size: 0.95rem; color: #555;">Apoiamos instituições parceiras com doações de mantimentos, roupas e livros.</p>
+                        <h4 style="color: var(--text-heading);"> Doações & Parcerias</h4>
+                        <p style="font-size: 0.95rem;">Apoiamos instituições parceiras com doações de mantimentos, roupas e livros.</p>
                     </div>
                     <div class="info-card">
-                        <h4 style="color: #2b5876;"> Contato Direto</h4>
-                        <p style="font-size: 0.95rem; color: #555;">E-mail: contato@projetoconecta.org<br>Instagram: @projetoconecta</p>
+                        <h4 style="color: var(--text-heading);"> Contato Direto</h4>
+                        <p style="font-size: 0.95rem;">E-mail: contato@projetoconecta.org<br>Instagram: @projetoconecta</p>
                     </div>
                 </div>
             </div>
@@ -285,6 +363,37 @@
             "A empatia é a capacidade de enxergar o mundo com os olhos do outro, ouvir com os ouvidos do outro e sentir com o coração do outro."
         </p>
     </footer>
+
+    <!-- Script de Lógica do Modo Escuro -->
+    <script>
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const themeText = document.getElementById('themeText');
+
+        // Carrega o tema salvo no navegador ou assume 'claro' por padrão
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        if (currentTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            themeIcon.textContent = '☀️';
+            themeText.textContent = 'Modo Claro';
+        }
+
+        // Alterna entre temas ao clicar no botão
+        themeToggleBtn.addEventListener('click', () => {
+            let theme = document.documentElement.getAttribute('data-theme');
+            if (theme === 'dark') {
+                document.documentElement.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                themeIcon.textContent = '🌙';
+                themeText.textContent = 'Modo Escuro';
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                themeIcon.textContent = '☀️';
+                themeText.textContent = 'Modo Claro';
+            }
+        });
+    </script>
 
 </body>
 </html>
